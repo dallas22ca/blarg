@@ -1,4 +1,6 @@
+<% cache medium do %>
 <div id="<%= dom_id medium %>" class="medium">
 	<%= image_tag medium.file.url(:thumb), "data-original" => medium.file.url %>
 	<p class="medium_file_name"><%= medium.file_file_name %> | <%= link_to "Delete", medium_path(medium), method: :delete, confirm: "Are you sure you want to delete this image?", remote: true %></p>
 </div>
+<% end %>
