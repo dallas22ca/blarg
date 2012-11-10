@@ -18,6 +18,12 @@ class Section < ActiveRecord::Base
     end
   end
   
+  after_save do
+    if !page
+      site.update_attributes updated_at: Time.now
+    end
+  end
+  
   def info
     self.html.split(",")
   end
