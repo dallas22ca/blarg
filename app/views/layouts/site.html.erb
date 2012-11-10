@@ -41,13 +41,13 @@
 	<% end %>
 	
 	
-
+<% cache [current_site, @page] do %>
 	<% @content = yield %>
 	<% @rendered_pattern = render(@page.pattern) %>
 	<% frags.map{|frag|instance_variable_set("@" + frag, render(frag))} %>
 
 	<%= page_html %>
-	
+<% end %>
 	
 
 </body>
