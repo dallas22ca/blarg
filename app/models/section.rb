@@ -20,7 +20,8 @@ class Section < ActiveRecord::Base
   
   after_save do
     if !self.page
-      self.site.update_attributes updated_at: Time.now
+      self.site.updated_at = Time.now
+      self.site.save
     end
   end
   

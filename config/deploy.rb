@@ -19,7 +19,7 @@ load "config/recipes/bundler"
 # load "config/recipes/redis"
 load "config/recipes/imagemagick"
 
-server "208.68.39.160", :web, :app, :db, primary: true
+server "108.166.109.158", :web, :app, :db, primary: true
 
 set :application, "blarg"
 set :user, "deployer"

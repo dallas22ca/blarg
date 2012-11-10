@@ -12,7 +12,7 @@ For setup on new machine:
 	KEYCHAIN ACCESS
 
 		LOCAL
-			cat ~/.ssh/id_rsa.pub | ssh deployer@208.68.39.160 'cat >> ~/.ssh/authorized_keys'
+			cat ~/.ssh/id_rsa.pub | ssh deployer@108.166.109.158 'cat >> ~/.ssh/authorized_keys'
 			ssh-add -K
 	
 	SEED DB
