@@ -11,7 +11,7 @@ class Section < ActiveRecord::Base
       if self.element == "section"
         self.html = "Droppable"
       elsif self.element == "img"
-        self.html = "/assets/rails.png,http://www.google.com"
+        self.html = "/assets/rails.png,"
       else
         self.html = "1.888.370.0370"
       end

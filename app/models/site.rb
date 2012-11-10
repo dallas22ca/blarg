@@ -1,7 +1,7 @@
 class Site < ActiveRecord::Base
   has_permalink
   
-  attr_accessible :title, :design_id
+  attr_accessible :title, :design_id, :updated_at
   
   belongs_to :design
   
