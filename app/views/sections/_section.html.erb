@@ -1,0 +1,9 @@
+<% if %w[section].include? section.element %>
+	<% if section.widgets.any? %>
+		<%= render section.widgets %>
+	<% else %>
+		<p class="no_widgets">This is a droppable area. Drag some widgets here.</p>
+	<% end %>
+<% else %>
+	<%= section.html.to_s.html_safe %>
+<% end %>

@@ -1,0 +1,6 @@
+<% if @medium.new_record? %>
+  alert("Failed to upload media: <%= j @medium.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+	$("#no_images").remove()
+  $("<%= j render(@medium) %>").prependTo("#media")
+<% end %>

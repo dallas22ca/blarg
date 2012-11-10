@@ -1,0 +1,4 @@
+<% @widget = widget %>
+<div id="<%= dom_id @widget %>" class="widget widget_<%= @widget.style %>" data-url="<%= widget_path(@widget) %>" data-id="<%= @widget.id %>">
+	<%= render "widgets/styles/#{widget.style}" %>
+</div>

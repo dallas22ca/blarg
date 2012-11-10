@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @siteship.user_id %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%= @siteship.site_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_siteship_path(@siteship) %> |
+<%= link_to 'Back', siteships_path %>

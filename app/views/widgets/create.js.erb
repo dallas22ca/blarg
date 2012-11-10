@@ -1,0 +1,3 @@
+$("#new_widget_<%= params[:stamp] %>").parents(".section").find(".no_widgets").remove()
+$("#new_widget_<%= params[:stamp] %>").replaceWith("<%= j render(@widget) %>")
+$.fn.setEditables()

@@ -1,0 +1,13 @@
+<% if page == current_site.pages.first %>
+	<% href = root_path %>
+<% else %>
+	<% href = quick_page_path(page) %>
+<% end %>
+<li id="<%= dom_id page %>" class="page">
+	<%= link_to page.title, href, class: "#{"selected" if href == request.path}" %>
+	<% if page.children.any? %>
+		<ul class="subnav">
+			<%= render page.children %>
+		</ul>
+	<% end %>
+</li>

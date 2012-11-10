@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @page.title %> - <%= current_site.title %></title>
+	<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <%= stylesheet_link_tag "shared", css_path(current_design) %>
+  <%= javascript_include_tag "shared", js_path(current_design) %>
+	<% if user_signed_in? %>
+		<%= stylesheet_link_tag "admin" %>
+		<%= javascript_include_tag "admin" %>
+	<% end %>
+	<%= csrf_meta_tags %>
+</head>
+<body class="pattern-<%= @page.pattern.name %>">
+	
+	<% if user_signed_in? %>
+		<div id="bar">
+			<div id="patterns">
+				<% for pattern in current_design.patterns %>
+					<%= link_to pattern.name.capitalize + "#{"*" if pattern == @page.pattern}", page_path(@page, "page[pattern_id]" => pattern), method: :put %>
+				<% end %>
+				<%= link_to "Sitemap", pages_path %>
+				<%= link_to "My Sites", sites_url(subdomain: false) %>
+				<%= link_to "Sign Out", destroy_user_session_url, method: :delete %>
+			</div>
+			
+			<div id="widgets">
+				<%= link_to "Text", "#", class: "draggable", "data-url" => create_widget_path("text", format: :js) %>
+				<%= link_to "Image", "#", class: "draggable", "data-url" => create_widget_path("image", format: :js) %>
+				<!--<%= link_to "Gallery", "#", class: "draggable", "data-url" => create_widget_path("gallery", format: :js) %>-->
+			</div>
+		</div>
+		
+		<div id="media_overlay">
+			<%= render template: "media/index" %>
+		</div>
+	<% end %>
+	
+	<% cache [current_site, @page] do %>
+
+		<% @content = yield %>
+		<% @rendered_pattern = render(@page.pattern) %>
+		<% frags.map{|frag|instance_variable_set("@" + frag, render(frag))} %>
+
+		<%= page_html %>
+		
+	<% end %>
+
+</body>
+</html>

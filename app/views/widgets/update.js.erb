@@ -1,0 +1,3 @@
+<% if %w[image gallery].include? @widget.style %>
+	$("#<%= dom_id @widget %>").replaceWith("<%= j render(@widget) %>")
+<% end %>

@@ -1,0 +1,10 @@
+<% page = sitemap %>
+<li id="<%= dom_id page %>">
+	<div>
+		<%= page.title %>
+		<%= link_to "Delete", page, method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this page?" } %>
+	</div>
+	<ol>
+		<%= render collection: page.children, partial: "sitemap" %>
+	</ol>
+</li>

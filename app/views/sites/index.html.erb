@@ -1,0 +1,21 @@
+<h1>My Sites</h1>
+
+<%= link_to 'Create A Website', new_site_path %>
+
+<br /><br />
+
+<table>
+  <tr>
+    <th style="width: 90%; ">Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sites.each do |site| %>
+  <tr>
+    <td><%= link_to site.title, root_url(subdomain: site.permalink) %></td>
+    <td style="font-size: 12px; "><%= link_to 'Edit', edit_site_path(site) %></td>
+    <td style="font-size: 12px; "><%= link_to 'Delete', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,22 @@
+body {
+	margin-bottom: 3em;
+}
+
+.widget.hover, .img:hover, [contenteditable]:focus, [contenteditable]:hover {
+	outline: 5px solid blue;
+}
+
+#sitemap {
+	margin: 0 0 0 20px;
+	list-style: disc;
+	
+	ol {
+		margin: 0 0 0 20px;
+		list-style: disc;
+	}
+}
+
+.placeholder {
+	background: rgba(0, 0, 0, .2);
+	opacity: .5;
+}

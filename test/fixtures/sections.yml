@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ordinal: 1
+  page_id: 1
+  html: MyText
+  site_id: 1
+
+two:
+  ordinal: 1
+  page_id: 1
+  html: MyText
+  site_id: 1

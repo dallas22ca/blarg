@@ -1,0 +1,60 @@
+<div id="media_wrapper">
+
+	<div id="selected_media">
+		
+		<div class="align_left" style="margin-bottom: 10px; ">
+			<%= link_to "< Cancel", "#", class: "close_gallery" %>
+		</div>
+	
+		<h1>Media Gallery</h1>
+	
+		<div id="prompt">
+			Select an image from the gallery to the right or select an image from your device. If you're on a computer, you can drag and drop multiple images here.<br /><br />
+			<%= render "media/form" %>
+		</div>
+		
+		<%= form_for "widget", remote: true, method: :put, html: { id: "save_image" } do |f| %>
+		
+			<%= hidden_field_tag :style %>
+			
+			<div id="image_fields" class="widget_fields">
+				<div id="selected_img">
+					<%= image_tag("rails.png") %>
+				</div>
+				
+				<div class="field">
+					<%= label_tag :alt, "Alt Text" %><br />
+					<%= text_field_tag :alt %>
+				</div>
+				
+				<div class="field">
+					<%= label_tag :href, "URL" %><br />
+					<%= text_field_tag :href %>
+				</div>
+				
+				<%= f.submit "Save Image", style: "margin-top: 15px" %>
+			</div>
+			
+			<div id="gallery_fields" class="widget_fields">
+				<div class="html">There are no images in the gallery.</div>
+				
+				<%= f.submit "Save Gallery", style: "margin-top: 15px" %>
+			</div>
+			
+			<div class="field" style="display: none; ">
+				<%= f.label :html %><br />
+				<%= f.text_area :html %>
+			</div>
+		<% end %>
+	
+	</div>
+
+	<div id="media">
+		<% if current_site.media.any? %>
+			<%= render current_site.media %>
+		<% else %>
+			<div id="no_images">You don't have any images yet!</div>
+		<% end %>
+	</div>
+
+</div>

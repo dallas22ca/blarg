@@ -1,0 +1,5 @@
+<% if @widget.html.blank? %>
+	<%= image_tag("rails.png") %>
+<% else %>
+	<%= @widget.html.to_s.html_safe %>
+<% end %>

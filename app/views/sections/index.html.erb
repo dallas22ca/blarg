@@ -1,0 +1,29 @@
+<h1>Listing sections</h1>
+
+<table>
+  <tr>
+    <th>Ordinal</th>
+    <th>Page</th>
+    <th>Html</th>
+    <th>Site</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sections.each do |section| %>
+  <tr>
+    <td><%= section.ordinal %></td>
+    <td><%= section.page_id %></td>
+    <td><%= section.html %></td>
+    <td><%= section.site_id %></td>
+    <td><%= link_to 'Show', section %></td>
+    <td><%= link_to 'Edit', edit_section_path(section) %></td>
+    <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Section', new_section_path %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blarg</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+
+	<% if user_signed_in? %>
+		<%= stylesheet_link_tag    "admin" %>
+	  <%= javascript_include_tag "admin" %>
+	<% end %>
+	
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="container">
+		<%= yield %>
+	</div>
+
+</body>
+</html>

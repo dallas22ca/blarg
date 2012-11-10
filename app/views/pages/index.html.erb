@@ -1,0 +1,14 @@
+<h1>Sitemap</h1>
+
+<%= link_to 'New Page', "#", class: "show_new_page_form" %>
+
+<div id="new_page_form" style="display: none; ">
+	<% @page = Page.new %>
+	<%= render "pages/form" %>
+</div>
+
+<ol id="sitemap">
+	<%= render collection: current_site.pages.roots, partial: "sitemap" %>
+</ol>
+
+<%= link_to "Save Page Order", pages_sort_path(current_site), class: "save_sitemap" %>

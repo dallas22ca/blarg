@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Html:</b>
+  <%= @design.html %>
+</p>
+
+<p>
+  <b>Css:</b>
+  <%= @design.css %>
+</p>
+
+<p>
+  <b>Js:</b>
+  <%= @design.js %>
+</p>
+
+
+<%= link_to 'Edit', edit_design_path(@design) %> |
+<%= link_to 'Back', designs_path %>

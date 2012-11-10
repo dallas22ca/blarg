@@ -1,0 +1,25 @@
+<h1>Listing siteships</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Site</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @siteships.each do |siteship| %>
+  <tr>
+    <td><%= siteship.user_id %></td>
+    <td><%= siteship.site_id %></td>
+    <td><%= link_to 'Show', siteship %></td>
+    <td><%= link_to 'Edit', edit_siteship_path(siteship) %></td>
+    <td><%= link_to 'Destroy', siteship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Siteship', new_siteship_path %>

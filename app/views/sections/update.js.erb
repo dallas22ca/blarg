@@ -1,0 +1,9 @@
+<% if %w[img].include? @section.element %>
+	$(".img.active_img").attr("src", "<%= @section.src %>")
+	if ($(".img.active_img").parents("a").length)
+	{
+		$(".img.active_img").parents("a").attr("href", "<%= @section.href %>")
+		$(".img.active_img").attr("alt", "<%= @section.alt %>")
+	}
+	$(".active_img").removeClass("active_img")
+<% end %>
