@@ -1,7 +1,7 @@
 class Section < ActiveRecord::Base
   attr_accessible :html, :ordinal, :page_id, :site_id
   
-  belongs_to :page
+  belongs_to :page, touch: true
   belongs_to :site
   
   has_many :widgets
@@ -19,8 +19,8 @@ class Section < ActiveRecord::Base
   end
   
   after_save do
-    if !page
-      site.update_attributes updated_at: Time.now
+    if !self.page
+      self.site.update_attributes updated_at: Time.now
     end
   end
   
