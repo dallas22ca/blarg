@@ -1,7 +1,7 @@
 class Section < ActiveRecord::Base
   attr_accessible :html, :ordinal, :page_id, :site_id
   
-  belongs_to :page, touch: true
+  belongs_to :page
   belongs_to :site
   
   has_many :widgets

@@ -3,7 +3,7 @@ class Medium < ActiveRecord::Base
   belongs_to :site
   
   has_attached_file :file,
-    :path => Rails.env.production? ? "/home/deployer/apps/eo/shared/public/media/:path/:hash/:style/:filename" : "#{Rails.root}/public/media/:path/:hash/:style/:filename",
+    :path => Rails.env.production? ? "/home/deployer/apps/blarg/shared/public/media/:path/:hash/:style/:filename" : "#{Rails.root}/public/media/:path/:hash/:style/:filename",
     :url => "/media/:path/:hash/:style/:filename",
     :hash_secret => "ThisIsA4SUPRTKDFKAS{LK$J#KN$#K$}",
     :default_url => "/assets/no_image.jpg",
