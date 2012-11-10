@@ -1,7 +1,7 @@
 class Widget < ActiveRecord::Base
   attr_accessible :ordinal, :section_id, :style, :html
   
-  belongs_to :section
+  belongs_to :section, touch: true
   
   default_scope order(:ordinal)
   

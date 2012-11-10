@@ -16,7 +16,7 @@ load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/bundler"
 # load "config/recipes/redis"
-# load "config/recipes/imagemagick"
+load "config/recipes/imagemagick"
 load "deploy/assets"
 
 server "208.68.39.160", :web, :app, :db, primary: true
