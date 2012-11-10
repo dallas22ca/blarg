@@ -7,10 +7,12 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <%= stylesheet_link_tag "shared", css_path(current_design) %>
   <%= javascript_include_tag "shared", js_path(current_design) %>
+
 	<% if user_signed_in? %>
 		<%= stylesheet_link_tag "admin" %>
 		<%= javascript_include_tag "admin" %>
 	<% end %>
+	
 	<%= csrf_meta_tags %>
 </head>
 <body class="pattern-<%= @page.pattern.name %>">
