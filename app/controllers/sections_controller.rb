@@ -93,7 +93,7 @@ class SectionsController < ApplicationController
   
   def sort
     params[:widget].each_with_index do |id, index|
-      Widget.update_all({ ordinal: index + 1, section_id: params[:section_id] }, { id: id })
+      Widget.update_all({ ordinal: index + 1, section_id: params[:section_id] updated_at: Time.now }, { id: id })
     end
     render nothing: true
   end

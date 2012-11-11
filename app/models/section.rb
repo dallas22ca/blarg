@@ -1,5 +1,5 @@
 class Section < ActiveRecord::Base
-  attr_accessible :html, :ordinal, :page_id, :site_id
+  attr_accessible :html, :ordinal, :page_id, :site_id, :updated_at
   
   belongs_to :page, touch: true
   belongs_to :site
