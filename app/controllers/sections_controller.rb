@@ -93,8 +93,10 @@ class SectionsController < ApplicationController
   
   def sort
     params[:widget].each_with_index do |id, index|
-      Widget.update_all({ ordinal: index + 1, section_id: params[:section_id], updated_at: Time.now }, { id: id })
+      Widget.update_all({ ordinal: index + 1, section_id: params[:section_id] }, { id: id })
     end
+    section = Section.find(params[:section_id])
+    section.update_attributes updated_at: Time.now
     render nothing: true
   end
 end
