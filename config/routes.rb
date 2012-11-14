@@ -1,9 +1,8 @@
 Blarg::Application.routes.draw do
   
-  resources :media
-
   devise_for :users
   
+  resources :media
   resources :designs
   resources :siteships
   resources :sites
@@ -16,7 +15,7 @@ Blarg::Application.routes.draw do
   post "/sort/sections/:id" => "sections#sort", as: :sections_sort
   post "/widgets/:style" => "widgets#create", as: :create_widget
   
-  constraints lambda { |r| r.domain == "livehours.co" || (r.subdomain.present? && r.subdomain != "app") } do
+  constraints lambda { |r| r.domain == "livehours.co" || (r.subdomain.present? && r.subdomain != "app" && r.subdomain != "www") } do
     get "/:id" => "pages#show", as: :quick_page
     get "/:id/style" => "designs#show", as: :css, format: :css
     get "/:id/javascript" => "designs#show", as: :js, format: :js
